@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>code js</title>
+</head>
+<body>
+    <p>JavaScript mainly in ES6 (>2015).</p>
+    <p>DOM operations incl. HTML and CSS.</p>
+    <p>JavaScript verwendet ein EventLoop</p>
+    <button id="button0">an event listens to this button</button>
+
+    <script type="text/javascript">
+        // um fehler auszuwerfen, den strict mode nutzen
+        "use strict";
+
+        console.log("main program");
+        let logCounter = 0; // used in variable log
+
+        console.log("### variablen");
+        let a;
+        a = "hello world";
+        a = "world hello";
+        let b = "hello world";
+
+        console.log("### zahlen");
+        console.log( (10+1-1*2/3) % 2 );
+        
+        console.log("### datentypen mit operator +");
+        let plane = "turboprop";
+        let flightheight = 1000;
+        console.log("string and number with + operation: " + plane + flightheight);
+
+        console.log("### undefined");   // also hat kein wert
+        let c;
+        console.log(c);
+
+        console.log("### object document");
+        console.log(document.location.href);   // adresse
+
+        console.log("### funktionen");
+        function sayHello() {
+            console.log("hello world - sayHello()");
+        }
+        let d = function() {
+            // anonyme function. Da es keinen namen hat.
+            console.log("hello world - anonyme function.");
+        };
+        sayHello();
+        d();
+
+        console.log("### parameter");
+        let log = function(msg) {
+            console.log(logCounter + " log: " + msg);
+            logCounter++;
+        }
+        log("some message");
+
+        console.log("### return value");
+        let sum = function(x, y) {
+            return x + y;
+        }
+        log(sum(1,4));
+
+        console.log("### function as parameter - callback");
+        let run = function(callback) {
+            console.log("run() execution.");
+            callback();
+        }
+        let fly = function() {
+            console.log("fly() execution. could be also used in setTimeout function.");
+        }
+        run(fly);
+        run(function() {
+            console.log("run() with anonym function execution.");
+        });
+        setTimeout(fly, 1000);
+        setTimeout(function() {
+           console.log("executed after 1.5s - setTimeout.");
+        }, 1500);
+        setTimeout(() => {
+            console.log("executed after 2s - setTimeout.");
+        }, 2000);
+
+        console.log("### JavaScript async functions");
+        console.log("setTimeout, setInterval - call a func every t ms, addEventListener - when an event happens then execute func.");
+        document.getElementById("button0").addEventListener("click", function() {
+            console.log("button0 clicked.");
+        }, false);
+
+        console.log("### DOM - Document Object Model");
+        
+
+        console.log("###");
+        console.log("###");
+
+    </script>
+</body>
+</html>
