@@ -1,14 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>code js</title>
+    <style>
+        body {
+            color: #00ff00;
+            background-color: rgb(70, 70, 70);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 90%
+        }
+
+        /* # is a css selector. select all id's with box */
+
+        #box {
+            margin-top: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border-top: 1px solid rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
+        }
+
+        /* everything with id=boxc and class hide */
+
+        #boxc.hide {
+            display: none;
+        }
+
+        /* class */
+
+        .news-font {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .textmarker {
+            background-color: yellow;
+        }
+
+        .textmarker-fontcolor {
+            color: black;
+        }
+    </style>
 </head>
+
 <body>
     <p>JavaScript mainly in ES6 (>2015).</p>
     <p>DOM operations incl. HTML and CSS.</p>
     <p>JavaScript verwendet ein EventLoop</p>
     <button id="button0">an event listens to this button</button>
+    <div id="box">
+        <div class="code-font" id="boxa" style="border-bottom: 3px solid green;">
+            Hello World
+        </div>
+        <div id="boxb">
+            Hello World
+        </div>
+        <div id="boxc">
+            Hello World
+        </div>
+        <div>
+            <span id="lang">programming languages:</span>
+            <ul id="items">
+                <li>Java</li>
+                <li>C++</li>
+                <li>Python</li>
+            </ul>
+        </div>
+        <div id="boxd" exampleAttribute="foobar">
+            Hello World - example with querySelector.
+        </div>
+    </div>
+    <div class="fibonacci">
+        <p>print some fibonacci numbers.</p>
+        <label for="numberofLbl">number of fibonaci numbers</label>
+        <input type="text" name="numberof" id="numberof">
+        <button id="button1">generate fibonaci</button>
+        <span id="fibonacciResult">-</span>
+    </div>
+    <div>
+        <table id="and">
+            <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>Ergebnis</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
 
     <script type="text/javascript">
         // um fehler auszuwerfen, den strict mode nutzen
@@ -24,8 +107,8 @@
         let b = "hello world";
 
         console.log("### zahlen");
-        console.log( (10+1-1*2/3) % 2 );
-        
+        console.log((10 + 1 - 1 * 2 / 3) % 2);
+
         console.log("### datentypen mit operator +");
         let plane = "turboprop";
         let flightheight = 1000;
@@ -42,7 +125,7 @@
         function sayHello() {
             console.log("hello world - sayHello()");
         }
-        let d = function() {
+        let d = function () {
             // anonyme function. Da es keinen namen hat.
             console.log("hello world - anonyme function.");
         };
@@ -50,50 +133,204 @@
         d();
 
         console.log("### parameter");
-        let log = function(msg) {
+        let log = function (msg) {
             console.log(logCounter + " log: " + msg);
             logCounter++;
         }
         log("some message");
 
         console.log("### return value");
-        let sum = function(x, y) {
+        let sum = function (x, y) {
             return x + y;
         }
-        log(sum(1,4));
+        log(sum(1, 4));
 
         console.log("### function as parameter - callback");
-        let run = function(callback) {
-            console.log("run() execution.");
-            callback();
-        }
-        let fly = function() {
-            console.log("fly() execution. could be also used in setTimeout function.");
-        }
-        run(fly);
-        run(function() {
-            console.log("run() with anonym function execution.");
-        });
-        setTimeout(fly, 1000);
-        setTimeout(function() {
-           console.log("executed after 1.5s - setTimeout.");
-        }, 1500);
-        setTimeout(() => {
-            console.log("executed after 2s - setTimeout.");
-        }, 2000);
+        // let run = function (callback) {
+        //     console.log("run() execution.");
+        //     callback();
+        // }
+        // let fly = function () {
+        //     console.log("fly() execution. could be also used in setTimeout function.");
+        // }
+        // run(fly);
+        // run(function () {
+        //     console.log("1s: run() with anonym function execution.");
+        // });
+        // setTimeout(fly, 1000);
+        // setTimeout(function () {
+        //     console.log("1.5s: exec - setTimeout.");
+        // }, 1500);
+        // setTimeout(() => {
+        //     console.log("2s: exec - setTimeout.");
+        // }, 2000);
 
         console.log("### JavaScript async functions");
         console.log("setTimeout, setInterval - call a func every t ms, addEventListener - when an event happens then execute func.");
-        document.getElementById("button0").addEventListener("click", function() {
+        document.getElementById("button0").addEventListener("click", function () {
             console.log("button0 clicked.");
         }, false);
 
         console.log("### DOM - Document Object Model");
-        
+        // access from JavaScript the HTML tree
+        console.log(window.navigator);
+        let boxa = document.getElementById("boxa");
+        boxa.addEventListener("click", function () {
+            boxa.innerHTML = "<code>hello world</code>";
+            boxa.style.color = "white";
+            boxa.style.fontWeight = "bold";
+            boxa.style.borderBottom = "3px solid white";
+        }, false);
+        let boxb = document.getElementById("boxb");
+        boxb.addEventListener("click", function () {
+            boxb.classList.add("textmarker");
+            boxb.classList.add("textmarker-fontcolor");
+            boxb.classList.add("news-font");
+        }, false);
+        let boxc = document.getElementById("boxc");
+        boxc.addEventListener("click", function () {
+            boxc.classList.add("hide");
+        }, false);
+        let lang = document.getElementById("lang");
+        lang.addEventListener("click", function () {
+            let items = document.getElementById("items");
+            let newItem = document.createElement("li");
+            newItem.innerText = "JavaScript";
+            items.appendChild(newItem);
+        }, false);
+        console.log("### querySelector");
+        let boxd = document.querySelector("#boxd");
+        console.log(boxd);
+        console.log(boxd.attributes.exampleattribute.value);
+        let boxdAttr = document.querySelector("#boxd[exampleattribute='foobar']");
+        console.log(boxdAttr);
 
+        console.log("### fibonaci generator");
+        /* we start with 0, 1 */
+        function fibonacci(f0, f1, start, stop, sequence) {
+            let f = f0 + f1;
+            sequence = sequence + ", " + f;
+            if(start < stop) {
+                return fibonacci(f1, f, ++start, stop, sequence);
+            } else {
+                return sequence;
+            }
+        }
+        let button1 = document.getElementById("button1");
+        button1.addEventListener("click", function() {
+            let input = document.getElementById("numberof");
+            let f = fibonacci(0, 1, 1, input.value, "0, 1");
+            let result = document.getElementById("fibonacciResult");
+            result.innerText = f;
+        }, false);
+
+        console.log("### Arrays");
+        let languages = ["Java", "C++", "C", "Python"];
+        languages.push("JavaScript");
+        languages.push(3.14);
+        languages.pop();
+        console.log(languages);
+        console.log(languages.length);
+        console.log(languages.shift());
+
+        console.log("### for-of loop used in arrays.");
+        for (let lang of languages) {
+            if(lang == "JavaScript")
+                console.log(lang);
+        }
+        for (let lang of languages) {
+            if(lang != "JavaScript")
+                continue;
+            console.log(lang);
+        }
+
+        console.log("### Arrays - multi dim");
+        let langVars = [
+            ["Java", "int"],
+            ["JavaScript", "let"]
+        ];
+        console.log(langVars);
+        console.log("variable definition in JavaScript: " + langVars[1][1]);
+
+        console.log("### if else & so on");
+        let e = true;
+        let f = false;
+        if(e && f)
+            console.log("true");
+        else
+            console.log("false");
+        // fill a table
+        let tbody = document.getElementById("and").children[1];
+        let aValues = [true, false];
+        let bValues = [true, false];
+        for (let a of aValues) {
+            for(let b of bValues) {
+                let td0 = document.createElement("td");
+                td0.innerHTML = a;
+                let td1 = document.createElement("td");
+                td1.innerHTML = b;
+                let td2 = document.createElement("td");
+                td2.innerHTML = (a && b);
+                let tr = document.createElement("tr");
+                tr.appendChild(td0);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tbody.appendChild(tr);
+            }
+        }
+
+        console.log("### for / while loop");
+        for (let i = 0; i < 2; i++) {
+            console.log("demo of for loop: " + i);
+        }
+        let g = 0;
+        while(g < 2) {
+            g++;
+            console.log("demo of while loop: " + g);
+        }
+
+        console.log("### objects");
+        let javascript = {
+            extension: "js",
+            age: "25"
+        };
+        console.log(javascript);
+        console.log(javascript.extension);
+        console.log(javascript["extension"]);
+        let attr = "extension";
+        console.log(javascript[attr]);
+        delete javascript.age;
+        console.log(javascript);
+        let cpp = {};
+        cpp.extension = "cpp";
+        cpp.age = "40"
+        console.log(cpp);
+
+        console.log("### class");
+        class ProgrammingLanguage {
+            constructor(extension) {
+                console.log("ProgrammingLanguage: constrcutor.");
+                this.extension = extension;
+            }
+            toString() {
+                console.log("ProgrammingLanguage: " + this.extension)
+            }
+        }
+        let js = new ProgrammingLanguage();
+        js.extension = "js";
+        js.toString();
+        let java = new ProgrammingLanguage("java");
+        java.toString();
+        class Cpp extends ProgrammingLanguage {
+            
+        }
+
+        console.log("###");
+        console.log("###");
         console.log("###");
         console.log("###");
 
     </script>
 </body>
+
 </html>
