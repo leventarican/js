@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box_0">
+        <button id="but_0">button 0</button>
+        <canvas id="myChart" width="40" height="40"></canvas>
+    </div>
+
+    <script src="chart.js"></script>
+
+    <script type="text/javascript">
+        let a = "hello js";
+        console.log(a);
+
+        let but_0 = document.getElementById("but_0");
+        but_0.addEventListener("click", function() {
+            console.log("button 0 clicked");
+        }, false);
+
+        var ctx = document.getElementById('myChart');
+
+        var options = {
+            scale: {
+                angleLines: {
+                    display: false
+                },
+                ticks: {
+                    suggestedMin: 50,
+                    suggestedMax: 100
+                }
+            },
+            title: {
+                display: true,
+                text: 'The Title'
+            }
+        };
+
+        var myChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Java', 'Python', 'JavaScript', 'C++'],
+                datasets: [
+                    {data: [90, 40, 50, 90]},
+                    {data: [40, 60, 20, 60]},
+                ]
+            },
+            options: options,
+            backgroundColor: 'rgba(0, 0.3, 0, 0.1)',
+            fill: true,
+            pointRadius: 50
+        });
+    </script>
+</body>
+</html>
