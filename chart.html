@@ -9,29 +9,26 @@
 <body>
     <div id="box_0">
         <button id="but_0">button 0</button>
-        <canvas id="myChart" width="40" height="40"></canvas>
+        <canvas id="radar_chart" width="40" height="40"></canvas>
     </div>
 
-    <script src="chart.js"></script>
+    <script src="Chart.js"></script>
 
     <script type="text/javascript">
+        let toggle = 10;
+
         let a = "hello js";
         console.log(a);
 
-        let but_0 = document.getElementById("but_0");
-        but_0.addEventListener("click", function() {
-            console.log("button 0 clicked");
-        }, false);
-
-        var ctx = document.getElementById('myChart');
+        var ctx = document.getElementById('radar_chart');
 
         var options = {
             scale: {
                 angleLines: {
-                    display: false
+                    display: true
                 },
                 ticks: {
-                    suggestedMin: 50,
+                    suggestedMin: 0,
                     suggestedMax: 100
                 }
             },
@@ -41,20 +38,41 @@
             }
         };
 
-        var myChart = new Chart(ctx, {
+        var radar_chart = new Chart(ctx, {
             type: 'radar',
             data: {
                 labels: ['Java', 'Python', 'JavaScript', 'C++'],
                 datasets: [
-                    {data: [90, 40, 50, 90]},
-                    {data: [40, 60, 20, 60]},
+                    {
+                        data: [90, 70, 30, 50],
+                        backgroundColor: 'rgba(0, 255, 0, 0.5)',
+                        fill: true,
+                        pointRadius: 3
+                    }, 
+                    {
+                        data: [95, 80, 50, 70],
+                        backgroundColor: 'rgba(255, 0, 0, 0.9)',
+                        fill: false,
+                        pointRadius: 5,
+                        borderWidth: 10
+                    }
                 ]
             },
             options: options,
-            backgroundColor: 'rgba(0, 0.3, 0, 0.1)',
-            fill: true,
-            pointRadius: 50
         });
+
+        document.getElementById("but_0").addEventListener("click", function() {
+            console.log("button 0 clicked");
+
+            if (toggle == 10) {
+                toggle = 90;
+            } else {
+                toggle = 10;
+            }
+
+            radar_chart.data.datasets[0].data[1] = toggle;
+            radar_chart.update();
+        }, false);
     </script>
 </body>
 </html>
