@@ -20,7 +20,30 @@
         let a = "hello js";
         console.log(a);
 
+        class ProgrammingLanguage {
+            // values: an array of numbers
+            constructor(name, values) {
+                this.name = name;
+                this.values = values;
+            }
+            get total() {
+                var total = 0;
+                for (const value of values) {
+                    total += value;
+                }
+                total = total / values.length;
+                console.log(`%ctotal: ${ total }`, 'color: black; background-color: LightGreen; padding: 2px 5px; border-radius: 2px');
+                return total;
+            }
+        }
+
         var ctx = document.getElementById('radar_chart');
+
+        const values =  [20, 50, 10, 40];
+        var javascript = new ProgrammingLanguage('javascript', values);
+
+        var data_0 = [90, 70, javascript.total, 50];
+        var data_1 = [95, 80, 40, 90];
 
         var options = {
             scale: {
@@ -38,19 +61,25 @@
             }
         };
 
+        // https://www.chartjs.org/docs/latest/configuration/elements.html#point-configuration
+        Chart.defaults.global.elements.point.pointStyle = 'rect';
+        // https://www.chartjs.org/docs/latest/configuration/title.html#title-configuration
+        Chart.defaults.global.title.fontSize = '20';
+
         var radar_chart = new Chart(ctx, {
             type: 'radar',
             data: {
                 labels: ['Java', 'Python', 'JavaScript', 'C++'],
+                // https://www.chartjs.org/docs/latest/charts/radar.html#dataset-properties
                 datasets: [
                     {
-                        data: [90, 70, 30, 50],
+                        data: data_0,
                         backgroundColor: 'rgba(0, 255, 0, 0.5)',
                         fill: true,
                         pointRadius: 3
                     }, 
                     {
-                        data: [95, 80, 50, 70],
+                        data: data_1,
                         backgroundColor: 'rgba(255, 0, 0, 0.9)',
                         fill: false,
                         pointRadius: 5,
