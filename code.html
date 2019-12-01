@@ -21,6 +21,22 @@
         console.log(value);
     }
 
+    var langs = ["java", "javascript", "kotlin"];
+    var x = langs.map(function(value, index, array) {
+        console.log(`# ${index}; ${value}`);
+        return {
+            java: {
+                name: "java",
+                version: 14
+            },
+            kotlin: {
+                name: "kotlin",
+                version: 1.3
+            }
+        }
+    });
+    console.log(x);
+
     </script>
 </body>
 </html>
