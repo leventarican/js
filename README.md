@@ -8,3 +8,4 @@
 # cheatsheet: firefox developer
 * webconsole: `CTRL + SHIFT + K`
 * responsive design mode: `CTRL + SHIFT + M`
+* debug in firefox: `CTRL + SHIFT K` > `Debugger` > set breakpoint
