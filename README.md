@@ -1,3 +1,9 @@
+# hands-on chartjs
+* display data, chart, ... with https://www.chartjs.org/
+* example: chart.html (you have to include Chart.js)
+
+![](screenshot-chart.png)
+
 # JavaScript in one file.
 * Mainly using ES6
 * from variables to objects
