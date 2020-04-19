@@ -1,3 +1,12 @@
+# JavaScript with NodeJS
+* Node.js is a JavaScript runtime environment
+* see example `main.js` - no html code only _pure_ JavaScript
+* run with: `node main.js` - yes you need to install first Node.js: `sudo apt install nodejs`
+
+__npm__
+* npm is a paket manager for Node.js
+* a repository for libraries
+
 # hands-on chartjs
 * display data, chart, ... with https://www.chartjs.org/
 * example: chart.html (you have to include Chart.js)
