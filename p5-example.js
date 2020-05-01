@@ -9,13 +9,15 @@ const FHD_H = 1080;
 let colors = [
     [255, 0, 0, 50],
     [0, 255, 0, 50],
-    [0, 0, 255, 50]
+    [0, 0, 255, 50],
+    [0, 125, 125, 50],
+    [100, 40, 0, 50]
 ];
 let index = 0;
 
 function setup() {
-    createCanvas(SVGA_W, SVGA_H);
-    // createCanvas(FHD_W, FHD_H);
+    // createCanvas(SVGA_W, SVGA_H);
+    createCanvas(FHD_W, FHD_H);
 }
 
 function draw() {
