@@ -1,3 +1,7 @@
+# p5
+* drawing with p5
+* see `p5-example.html` / `p5-example.js`
+
 # JavaScript with NodeJS
 * Node.js is a JavaScript runtime environment
 * see example `main.js` - no html code only _pure_ JavaScript
@@ -24,3 +28,8 @@ __npm__
 * webconsole: `CTRL + SHIFT + K`
 * responsive design mode: `CTRL + SHIFT + M`
 * debug in firefox: `CTRL + SHIFT K` > `Debugger` > set breakpoint
+
+# tools for livecoding, hot reload, server, ...
+* http-server
+* browsersync
+* python module simplehttpserver

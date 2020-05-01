@@ -9,7 +9,15 @@
             color: #00ff00;
             background-color: rgb(70, 70, 70);
             font-family: 'Courier New', Courier, monospace;
-            font-size: 90%
+            font-size: 120%
+        }
+
+        button {
+            width: 500px;
+            height: 30px;
+            color: papayawhip;
+            background-color: rgb(45, 122, 90);
+            font-size: large;
         }
 
         /* # is a css selector. select all id's with box */
@@ -29,17 +37,10 @@
         }
 
         /* class */
-
-        .news-font {
-            font-family: 'Times New Roman', Times, serif;
-        }
-
         .textmarker {
-            background-color: yellow;
-        }
-
-        .textmarker-fontcolor {
+            background-color: rgba(253, 251, 136, 0.959);
             color: black;
+            font-family: 'Times New Roman', Times, serif;
         }
     </style>
 </head>
@@ -47,9 +48,12 @@
 <body>
     <p>JavaScript mainly in ES6 (>2015).</p>
     <p>DOM operations incl. HTML and CSS.</p>
-    <p>JavaScript verwendet ein EventLoop</p>
-    <button id="button0">an event listens to this button</button>
+    <p>JavaScript uses an event loop</p>
+    
+    <button id="button0">an event listens to this button. check console log.</button>
+
     <div id="box">
+        <p><i class="textmarker">Text items are click-able.</i></p>
         <div class="code-font" id="boxa" style="border-bottom: 3px solid green;">
             Hello World
         </div>
@@ -78,7 +82,9 @@
         <button id="button1">generate fibonaci</button>
         <span id="fibonacciResult">-</span>
     </div>
-    <div>
+
+    <div id="box">
+        <p><i class="textmarker">bool values are generated.</i></p>
         <table id="and">
             <thead>
                 <tr>
@@ -87,9 +93,7 @@
                     <th>Ergebnis</th>
                 </tr>
             </thead>
-            <tbody>
-
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 
@@ -167,9 +171,10 @@
 
         console.log("### JavaScript async functions");
         console.log("setTimeout, setInterval - call a func every t ms, addEventListener - when an event happens then execute func.");
-        document.getElementById("button0").addEventListener("click", function () {
-            console.log("button0 clicked.");
-        }, false);
+
+        document.querySelector('#button0').addEventListener('click', () => {
+            console.log("button 0 clicked.")
+        })
 
         console.log("### DOM - Document Object Model");
         // access from JavaScript the HTML tree
@@ -184,8 +189,6 @@
         let boxb = document.getElementById("boxb");
         boxb.addEventListener("click", function () {
             boxb.classList.add("textmarker");
-            boxb.classList.add("textmarker-fontcolor");
-            boxb.classList.add("news-font");
         }, false);
         let boxc = document.getElementById("boxc");
         boxc.addEventListener("click", function () {
