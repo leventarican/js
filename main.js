@@ -46,6 +46,7 @@ function varargs(...params) {
 }
 
 function objects() {
+    // object without class syntax in EC2015
     let option0 = new Object();
     let option1 = {};
 
@@ -96,6 +97,32 @@ function features() {
     console.log('text to upper case: %s', text.toUpperCase());
 }
 
+// class syntax since ES2015
+class Machine {
+    constructor(machineName) {
+        this.name = machineName
+    }
+    on() {
+        console.log('machine ON: %s', this.name)
+    }
+    off() {
+        console.log('machine OFF: %s', this.name)
+    }
+    setMachineName(machineName) {
+        this.name = machineName
+    }
+}
+
+class CoffeeMachine extends Machine {
+    constructor(coffeeMachine) {
+        super('CoffeeMachine')
+    }
+    setCoffeeMachineName(coffeeMachine) {
+        this.setMachineName(coffeeMachine)
+        console.log('coffee machine name set to: %s', coffeeMachine)
+    }
+}
+
 variables()
 conditionals()
 anon_function()
@@ -107,3 +134,7 @@ arrays()
 let c = new Class()
 console.log(c.toString());
 
+cm = new CoffeeMachine()
+cm.on()
+cm.setCoffeeMachineName('Ura X100')
+cm.off()
