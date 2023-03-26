@@ -1,7 +1,7 @@
 import * as ReactDOM from 'react-dom';
 
 function render() {
-  ReactDOM.render(<h2>Hello from React!</h2>, document.body);
+  ReactDOM.render(<code>☕️ powered by: electron forge, React with TypeScript, Webpack + Typescript</code>, document.body);
 }
 
 render();
