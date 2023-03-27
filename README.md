@@ -5,11 +5,43 @@
 # JavaScript with NodeJS
 * Node.js is a JavaScript runtime environment
 * see example `main.js` - no html code only _pure_ JavaScript
-* run with: `node main.js` - yes you need to install first Node.js: `sudo apt install nodejs`
+* run with: `node main.js`
 
 __npm__
 * npm is a paket manager for Node.js
 * a repository for libraries
+
+The packages can be managed in a package.json file.
+See also electron example: `electron-app/package.json`.
+
+Create package.json file in current dir
+```bash
+npm init --yes
+```
+
+Example `package.json` with react dependencies.
+```json
+{
+  "name": "app",
+  "version": "0.1.0",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  }
+}
+```
+
+Example for creating legacy react app
+```bash
+npm install create-react-app
+npx create-react-app app
+# start react app
+npm start
+```
+
+# nextjs
+* working dir: `nextjs/`
 
 # hands-on chartjs
 * display data, chart, ... with https://www.chartjs.org/
