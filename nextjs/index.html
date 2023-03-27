@@ -14,17 +14,34 @@
       // a component (i.e. a lego brick) i a function that returns a UI element.
       // React components should be capitalized to distinguish them from plain HTML and JavaScript.
       function Header() {
-        return <h1>Develop. Preview. Ship. 🚀</h1>;
+        return <h3>Next.js, React, subabase. 🚀</h3>;
       }
-      function Code() {
-        return <code>DEBUG</code>;
+      // props (or arguments) make components configurable (flexible).
+      function Code({payload}) {
+        console.log(payload);
+        return <code>{`DEBUG payload: ${payload}`}</code>;
       }
       
       function HomePage() {
+        const pl = ['kotlin', 'java', 'python', 'js'];
+        const [counts, setCount] = React.useState(0)
+        function handleClick() {
+          setCount(counts + 1)
+        }
+  
         return (
           <div>
             <Header />
-            <Code />
+
+            <Code payload="DEBUG" />
+            <ul>
+                {pl.map((pl) => (
+                    <li key={pl}>{pl}</li>
+                ))}
+            </ul>
+            <Code payload="DEBUG END" />
+            <br/>
+            <button onClick={handleClick}>Counts: [{counts}]</button>
           </div>
         );
       }
