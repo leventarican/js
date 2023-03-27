@@ -40,11 +40,25 @@ npx create-react-app app
 npm start
 ```
 
+# reactjs
+* working dir: `reactjs/`
+* based on: https://nextjs.org/learn/foundations/from-javascript-to-react
+
 # nextjs
-* working dir: `nextjs/`
 
 Next.js is a javascript framework build on top od React. Primary lang is JS or Typscript.
 It has support for server-side rendering, static site generation, and API routes.
+
+* create `packages.json`
+```json
+{
+}
+```
+
+* install dependencies
+```bash
+npm install react react-dom next
+```
 
 # hands-on chartjs
 * display data, chart, ... with https://www.chartjs.org/
