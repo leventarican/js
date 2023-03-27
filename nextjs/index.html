@@ -10,7 +10,26 @@
 
     <script type="text/jsx">
       const app = document.getElementById('app');
-      ReactDOM.render(<h1>Develop. Preview. Ship. 🚀</h1>, app);
+
+      // a component (i.e. a lego brick) i a function that returns a UI element.
+      // React components should be capitalized to distinguish them from plain HTML and JavaScript.
+      function Header() {
+        return <h1>Develop. Preview. Ship. 🚀</h1>;
+      }
+      function Code() {
+        return <code>DEBUG</code>;
+      }
+      
+      function HomePage() {
+        return (
+          <div>
+            <Header />
+            <Code />
+          </div>
+        );
+      }
+      
+      ReactDOM.render(<HomePage />, app);
     </script>
   </body>
 </html>

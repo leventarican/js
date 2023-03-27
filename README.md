@@ -43,6 +43,9 @@ npm start
 # nextjs
 * working dir: `nextjs/`
 
+Next.js is a javascript framework build on top od React. Primary lang is JS or Typscript.
+It has support for server-side rendering, static site generation, and API routes.
+
 # hands-on chartjs
 * display data, chart, ... with https://www.chartjs.org/
 * example: chart.html (you have to include Chart.js)
