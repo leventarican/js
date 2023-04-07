@@ -1,0 +1,27 @@
+<html>
+
+<body>
+  <div id="app"></div>
+  <a href="https://nextjs.org/learn/foundations/from-javascript-to-react/getting-started-with-react" target="_blank">
+    https://nextjs.org/learn/foundations/from-javascript-to-react/getting-started-with-react
+  </a>
+  <p>
+    React core components:
+    <ul>
+      <li>Components</li>
+      <li>Props</li>
+      <li>State</li>
+    </ul>
+  </p>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Babel Script for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/jsx">
+      const app = document.getElementById('app');
+      const txt = 'React DOM manipulating demo \u{1F333}';
+      ReactDOM.render(<h1>{txt}</h1>, app);
+    </script>
+</body>
+
+</html>
