@@ -1,14 +1,41 @@
-# p5
-* drawing with p5
-* see `p5-example.html` / `p5-example.js`
+# nextjs
+Next.js is a javascript framework build on top of __React__. Primary lang is __JS__ or __Typscript__.
+It has support for server-side rendering, static site generation, and API routes.
 
-# JavaScript with NodeJS
+Create app from scratch
+* create `packages.json`
+```json
+{
+}
+```
+* install dependencies
+```bash
+npm install react react-dom next
+```
+
+Instead of create from scratch you can also create guided nextjs app
+```bash
+npx create-next-app 
+npm run dev
+# open http://localhost:3000 
+```
+
+## react
+* example: `nextjs/react.html`
+* based on: https://nextjs.org/learn/foundations/from-javascript-to-react
+* see also: https://nextjs.org/docs/getting-started
+
+## javascript
+* example `nextjs/js.html`
+
+# nodejs
 * Node.js is a JavaScript runtime environment
 * see example `main.js` - no html code only _pure_ JavaScript
 * run with: `node main.js`
 
-__npm__
+npm and npx
 * npm is a paket manager for Node.js
+* npx is the cli for npm
 * a repository for libraries
 
 The packages can be managed in a package.json file.
@@ -19,46 +46,9 @@ Create package.json file in current dir
 npm init --yes
 ```
 
-Example `package.json` with react dependencies.
-```json
-{
-  "name": "app",
-  "version": "0.1.0",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
-  }
-}
-```
-
-Example for creating legacy react app
-```bash
-npm install create-react-app
-npx create-react-app app
-# start react app
-npm start
-```
-
-# reactjs
-* working dir: `reactjs/`
-* based on: https://nextjs.org/learn/foundations/from-javascript-to-react
-
-# nextjs
-
-Next.js is a javascript framework build on top od React. Primary lang is JS or Typscript.
-It has support for server-side rendering, static site generation, and API routes.
-
-* create `packages.json`
-```json
-{
-}
-```
-
-* install dependencies
-```bash
-npm install react react-dom next
-```
+# p5
+* drawing with p5
+* see `p5-example.html` / `p5-example.js`
 
 # hands-on chartjs
 * display data, chart, ... with https://www.chartjs.org/
